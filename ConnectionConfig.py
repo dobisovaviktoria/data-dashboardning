@@ -41,6 +41,8 @@ def startLocalCluster(appName, partitions=4):
         .appName(appName) \
    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
         .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
+        .config("spark.driver.memory", "16g") \
+        .config("spark.executor.memory", "16g") \
         .config("spark.sql.shuffle.partitions", partitions) \
         .config("spark.executor.extraJavaOptions",
                 "-Dsasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username=RHUIVNZYHMOODAKC password=/bkAQpKgCWjkPfTgxRY973VOhKf+MmwFulZLrAdrwdlXUTta0AUvNjo/8U57R8/w;") \
